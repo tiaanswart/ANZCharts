@@ -1,0 +1,112 @@
+:root {
+    --anz-blue: #007dba;
+    --anz-dark-blue: #004165;
+    --anz-red: #f05b4f;
+}
+.hidden {
+    visibility: hidden !important;
+}
+/* Pure CSS Loader: https://codepen.io/RRoberts/pen/pEXWEp */
+.loader{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  margin: 20px auto;
+}
+.loader:before, .loader:after{
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 5px solid transparent;
+  border-top-color: var(--anz-blue);
+}
+.loader:before{
+  z-index: 100;
+  animation: spin 1s infinite;
+}
+.loader:after{
+  border: 5px solid #ccc;
+}
+@keyframes spin{
+  0%{
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100%{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* Chartist Threshold Plugin CSS */
+.ct-line.ct-threshold-above, .ct-point.ct-threshold-above, .ct-bar.ct-threshold-above {
+  stroke: var(--anz-blue);
+}
+.ct-line.ct-threshold-below, .ct-point.ct-threshold-below, .ct-bar.ct-threshold-below {
+  stroke: var(--anz-red);
+}
+.ct-area.ct-threshold-above {
+  fill: var(--anz-blue);
+}
+.ct-area.ct-threshold-below {
+  fill: var(--anz-red);
+}
+/* Chart Tooltip: https://raw.githubusercontent.com/tmmdata/chartist-plugin-tooltip/master/dist/chartist-plugin-tooltip.css */
+.chartist-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  min-width: 5em;
+  padding: .25em;
+  background: var(--anz-blue);
+  border: 1px solid var(--anz-blue);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  -o-transition: opacity .2s linear;
+  transition: opacity .2s linear;
+}
+.chartist-tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top-color: var(--anz-blue);
+}
+.chartist-tooltip.tooltip-show {
+  opacity: 0.65;
+}
+.ct-area, .ct-line {
+  pointer-events: none;
+}
+/* Pie Chart */
+.ct-chart-pie .ct-series-a .ct-area, 
+.ct-chart-pie .ct-series-a .ct-slice-donut-solid, 
+.ct-chart-pie .ct-series-a .ct-slice-pie {
+  fill: var(--anz-blue);
+}
+.ct-chart-pie .ct-series-b .ct-area, 
+.ct-chart-pie .ct-series-b .ct-slice-donut-solid, 
+.ct-chart-pie .ct-series-b .ct-slice-pie {
+  fill: var(--anz-dark-blue);
+}
+.ct-chart-pie .ct-label {
+  color: white;
+  fill: white;
+}
